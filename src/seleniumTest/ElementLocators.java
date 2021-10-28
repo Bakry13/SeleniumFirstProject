@@ -3,11 +3,12 @@ package seleniumTest;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class ElementLocators {
-	
+	Actions actions;
 	ChromeDriver driver;
 	void invokedbrowser()
 	{
@@ -19,6 +20,10 @@ public class ElementLocators {
 //			driver.get("https://www.google.com.eg/");
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+			driver.findElement(By.id("search_query_top")).sendKeys("Blouse");
+			driver.findElement(By.id("search_query_top")).clear();
+			WebElement searchElement = driver.findElement(By.id("search_query_top"));
+			actions.moveToElement(searchElement);
 			} catch (Exception e) {
 			e.printStackTrace();
 		}
