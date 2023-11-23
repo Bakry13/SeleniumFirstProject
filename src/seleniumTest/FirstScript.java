@@ -8,20 +8,20 @@ import java.time.Duration;
 
 public class FirstScript {
 	WebDriver driver;
-	void invokedbrowser()
+	void invokedBrowser()
 	{
 		try {
 //			System.setProperty("webdriver.chrome.driver",
 //			"C:\\Users\\Mohamed\\Desktop\\Course\\SeleniumFirstProject\\src\\resources\\chromedriver.exe");
 			driver = new ChromeDriver();
 			//============================================================================
-			driver.get("http://automationpractice.com/");
+			driver.get("https://automationexercise.com/");
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-			driver.findElement(By.xpath("//a[contains(text(),'Sign in')]")).click();
-			driver.findElement(By.id("email")).sendKeys("test@moakt.cc");
-			driver.findElement(By.id("passwd")).sendKeys("Test@123");
-			driver.findElement(By.name("SubmitLogin")).click();
+			driver.findElement(By.xpath("//a[normalize-space()='Signup / Login']")).click();
+			driver.findElement(By.xpath("//input[@data-qa='login-email']")).sendKeys("test@teml.net");
+			driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("Test@123");
+			driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 			driver.quit();
 			} catch (Exception e) {
 			e.printStackTrace();
@@ -31,6 +31,6 @@ public class FirstScript {
 	public static void main(String[] args) 
 	{
 		FirstScript Obj = new FirstScript();
-		Obj.invokedbrowser();
+		Obj.invokedBrowser();
 	}
 }
